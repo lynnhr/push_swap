@@ -14,6 +14,7 @@
 # define STACK_H
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -38,6 +39,7 @@ int		ft_stack_peek_tail_value(t_stack *stack);
 int		ft_stack_size(t_stack *stack);
 void	ft_stack_print_bottom_up(t_stack *stack);
 void	ft_stack_print_top_down(t_stack *stack);
+void	ft_stack_free(t_stack *stack);
 
 #endif
 
