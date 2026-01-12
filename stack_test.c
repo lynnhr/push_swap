@@ -1,21 +1,25 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atchelde <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 10:23:46 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/12 10:23:48 by atchelde         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+# include <stdio.h>
+# include <stdlib.h>
 
-#include "stack.h"
+typedef struct s_node
+{
+	int				value;
+	struct s_node	*next;
+	struct s_node   *previous;
+} t_node;
+
+typedef struct s_stack
+{
+	t_node  *head; // top
+	t_node  *tail; // bottom
+} t_stack;
+
 
 t_stack		ft_stack_new(void)
 {
 	t_stack		rt_stack;
 
+	rt_stack = *(t_stack *)(malloc(sizeof(t_stack)));
 	rt_stack.head = NULL;
 	rt_stack.tail = NULL;
 	return (rt_stack);
@@ -25,6 +29,7 @@ int		ft_stack_push(t_stack *stack, int value)
 {
 	t_node	*new_node;
 
+	new_node = (t_node *)(malloc(sizeof(t_node)));
 	new_node->value = value;
 	new_node->next = NULL;
 	if (! stack->head)
@@ -46,6 +51,8 @@ t_node	*ft_stack_pop(t_stack *stack)
 	t_node	*rt_node;
 	t_node	*new_head;
 
+	rt_node = (t_node *)(malloc(sizeof(t_node)));
+	new_head = (t_node *)(malloc(sizeof(t_node)));
 	rt_node = stack->head;
 	new_head = rt_node->previous;
 	new_head->next = NULL;
@@ -78,6 +85,7 @@ int		ft_stack_size(t_stack *stack)
 	t_node	*current;
 	int		rt_length;
 
+	current = (t_node *)(malloc(sizeof(t_node)));
 	current = stack->tail;
 	rt_length = 0;
 	while (current)
@@ -92,6 +100,7 @@ void	ft_stack_print_bottom_up(t_stack *stack)
 {
 	t_node	*current;
 
+	current = (t_node *)(malloc(sizeof(t_node)));
 	current = stack->tail;
 	while (current)
 	{
@@ -107,6 +116,7 @@ void	ft_stack_print_top_down(t_stack *stack)
 {
 	t_node	*current;
 
+	current = (t_node *)(malloc(sizeof(t_node)));
 	current = stack->head;
 	while (current)
 	{
@@ -116,4 +126,21 @@ void	ft_stack_print_top_down(t_stack *stack)
 			printf("<-");
 	}
 	printf("\n");
+}
+
+
+int main()
+{
+	t_stack my_stack = ft_stack_new();
+	ft_stack_print_bottom_up(&my_stack);
+	ft_stack_push(&my_stack, 1);
+	ft_stack_print_bottom_up(&my_stack);
+	ft_stack_push(&my_stack, 4);
+	ft_stack_push(&my_stack, 6);
+	ft_stack_print_bottom_up(&my_stack);
+	ft_stack_print_top_down(&my_stack);
+	printf("%d\n", ft_stack_size(&my_stack));
+	ft_stack_pop(&my_stack);
+	ft_stack_print_bottom_up(&my_stack);
+	ft_stack_print_top_down(&my_stack);
 }
