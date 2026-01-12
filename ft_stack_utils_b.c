@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils_b.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atchelde <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:18:32 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/12 15:18:33 by atchelde         ###   ########.fr       */
+/*   Updated: 2026/01/12 23:59:34 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ft_stack.h"
 
@@ -62,6 +62,7 @@ void	ft_stack_print_bottom_up(t_stack *stack)
 			printf("->");
 	}
 	printf("\n");
+	//remove it cz current was never malloced
 	free(current);
 }
 
@@ -78,5 +79,6 @@ void	ft_stack_print_top_down(t_stack *stack)
 			printf("<-");
 	}
 	printf("\n");
+	//same here
 	free(current);
 }
