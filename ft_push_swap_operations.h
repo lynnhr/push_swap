@@ -23,7 +23,7 @@
 # include <stdlib.h>
 # include "ft_stack.h"
 
-void	ft_swap_stack(t_stack *stack);
+void	ft_swap_swap(t_stack *stack);
 void	ft_swap_swap(t_stack *stack);
 void	ft_swap_push(t_stack *stack_a, t_stack *stack_b);
 void	ft_swap_rotate(t_stack *stack);

@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_stack_main.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:41:33 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/14 14:18:14 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/01/14 14:46:57 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ft_stack.h"
 #include "ft_push_swap_operations.h"
@@ -41,7 +41,7 @@ int	main(void)
 	{
 		printf("Before swap\n");
 		// ft_stack_print_top_down(&my_stack);
-		// ft_swap_stack(&my_stack);
+		ft_swap_swap(&my_stack);
 		printf("After swap\n");
 		// ft_stack_print_top_down(&my_stack);
 		printf("Head: %d\n", ft_stack_peek_head_value(&my_stack));
