@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_main.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atchelde <atchelde@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:41:33 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/13 17:41:34 by atchelde         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:35:15 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(void)
 	{
 		printf("Before swap\n");
 		// ft_stack_print_top_down(&my_stack);
-		ft_swap_stack(&my_stack);
+		//ft_swap_stack(&my_stack);
 		printf("After swap\n");
 		// ft_stack_print_top_down(&my_stack);
 		printf("Head: %d\n", ft_stack_peek_head_value(&my_stack));

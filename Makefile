@@ -1,14 +1,14 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 15:21:12 by lhaydar           #+#    #+#              #
-#    Updated: 2026/01/14 11:12:37 by marvin           ###   ########.fr        #
+#    Updated: 2026/01/14 12:43:02 by lhaydar          ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME =  push_swap
 
@@ -21,10 +21,10 @@ SRC = ft_stack_utils_a.c ft_stack_utils_b.c ft_stack_main.c ft_push_swap_operati
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME) build-ftprintf build-libft
+all: build-ftprintf build-libft $(NAME) 
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(NAME): $(OBJ) ft_printf/libftprintf.a Libft/libft.a build-ftprintf build-libft
+	$(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a Libft/libft.a -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
