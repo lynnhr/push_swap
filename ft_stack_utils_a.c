@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils_a.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atchelde <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:18:22 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/12 15:18:23 by atchelde         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:07:30 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ int	ft_stack_push(t_stack *stack, int value)
 {
 	t_node	*new_node;
 
+	if (!stack)
+		return (0);
 	new_node = (t_node *)(malloc(sizeof(t_node)));
+	if (!new_node)
+		return (0);
 	new_node->value = value;
 	new_node->next = stack->head;
 	stack->head = new_node;
@@ -36,12 +40,13 @@ t_node	*ft_stack_pop(t_stack *stack)
 {
 	t_node	*rt_node;
 
-	if (! stack->head)
-		rt_node = NULL;
+	if (! stack->head || !stack)
+		return (0);
 	else
 	{
 		rt_node = stack->head;
 		stack->head = rt_node->next;
+		rt_node->next = NULL;
 	}
 	return (rt_node);
 }

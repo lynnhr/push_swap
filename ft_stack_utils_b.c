@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_utils_b.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atchelde <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:18:32 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/12 15:18:33 by atchelde         ###   ########.fr       */
+/*   Updated: 2026/01/14 14:11:31 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	ft_stack_print_bottom_up(t_stack *stack)
 	current = aux.head;
 	while (current)
 	{
-		printf("%d", current->value);
+		ft_printf("%d", current->value);
 		current = current->next;
 		if (current)
-			printf("->");
+			ft_printf("->");
 	}
-	printf("\n");
-	free(current);
+	ft_printf("\n");
+	// free(current);
 	ft_stack_free(&aux);
 	return ;
 }
@@ -57,22 +57,29 @@ void	ft_stack_print_top_down(t_stack *stack)
 {
 	t_node	*current;
 
+	if (!stack)
+	{
+		ft_printf("\n");
+		return ;
+	}
 	current = stack->head;
 	while (current)
 	{
-		printf("%d", current->value);
-		current = current->next;
+		ft_printf("%d", current->value);
 		if (current)
-			printf("<-");
+			ft_printf("<-");
+		current = current->next;
 	}
-	printf("\n");
-	free(current);
+	ft_printf("\n");
+	//free(current);
 }
 
 void	ft_stack_free(t_stack *stack)
 {
 	t_node	*current;
 
+	if (!stack)
+		return ;
 	current = stack->head;
 	while (current)
 	{
@@ -81,5 +88,6 @@ void	ft_stack_free(t_stack *stack)
 		current = stack->head;
 	}
 	current = NULL;
+	stack->head = NULL;
 	return ;
 }
