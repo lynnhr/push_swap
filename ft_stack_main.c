@@ -6,7 +6,7 @@
 /*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:41:33 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/14 12:35:15 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/01/14 12:52:25 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	ft_stack_push(&my_stack, 30);
 	ft_stack_push(&my_stack, 40);
 	ft_stack_push(&my_stack, 50);
-	printf("Stack size: %d\n", ft_stack_size(&my_stack));
+	ft_printf("Stack size: %d\n", ft_stack_size(&my_stack));
 	printf("Stack bottom up:\n");
 	ft_stack_print_bottom_up(&my_stack);
 	printf("Stack top down:\n");
