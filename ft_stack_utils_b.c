@@ -6,7 +6,7 @@
 /*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:18:32 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/14 14:09:39 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/01/14 14:11:31 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_stack_print_top_down(t_stack *stack)
 	if (!stack)
 	{
 		ft_printf("\n");
-		return;
+		return ;
 	}
 	current = stack->head;
 	while (current)
@@ -87,7 +87,7 @@ void	ft_stack_free(t_stack *stack)
 		free(current);
 		current = stack->head;
 	}
-	current = NULL; 
+	current = NULL;
 	stack->head = NULL;
 	return ;
 }

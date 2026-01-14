@@ -6,7 +6,7 @@
 /*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:32:33 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/14 12:52:00 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/01/14 14:12:30 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int		ft_stack_size(t_stack *stack);
 void	ft_stack_print_bottom_up(t_stack *stack);
 void	ft_stack_print_top_down(t_stack *stack);
 void	ft_stack_free(t_stack *stack);
+void	ft_swap_stack(t_stack *stack);
 
 #endif
