@@ -1,7 +1,4 @@
-# push_swap
-
-This project has been created as part
-of the 42 curriculum by atchelde & lhaydar
+*This project has been created as part of the 42 curriculum by atchelde & lhaydar*
 
 ## Description
 A random list of integers is given via command line arguments. 
