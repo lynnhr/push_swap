@@ -1,18 +1,18 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap_operations_a.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:43:38 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/14 13:40:59 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/03/08 21:05:27 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ft_push_swap_operations.h"
 
-void	ft_swap_swap(t_stack *stack)
+void	ft_sa(t_stack *stack)
 {
 	t_node	*temp_1;
 	t_node	*temp_2;
@@ -24,6 +24,8 @@ void	ft_swap_swap(t_stack *stack)
 		ft_stack_push(stack, temp_1->value);
 		ft_stack_push(stack, temp_2->value);
 	}
+	free(temp_1);
+	free(temp_2);
 	temp_1 = NULL;
 	temp_2 = NULL;
 	return ;
@@ -38,11 +40,12 @@ void	ft_swap_push(t_stack *stack_a, t_stack *stack_b)
 		temp_b = ft_stack_pop(stack_b);
 		ft_stack_push(stack_a, temp_b->value);
 	}
+	free(temp_b);
 	temp_b = NULL;
 	return ;
 }
 
-void	ft_swap_rotate(t_stack *stack)
+void	ft_ra(t_stack *stack)
 {
 	t_node	*temp_head;
 	t_node	*current;
