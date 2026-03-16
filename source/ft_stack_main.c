@@ -6,12 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:41:33 by atchelde          #+#    #+#             */
-/*   Updated: 2026/01/14 14:46:57 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/16 02:00:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "ft_stack.h"
-#include "ft_push_swap_operations.h"
+#include "header/ft_stack.h"
+#include "header/ft_push_swap_operations.h"
 
 int	main(void)
 {

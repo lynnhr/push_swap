@@ -1,50 +1,57 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/01/12 15:21:12 by lhaydar           #+#    #+#              #
-#    Updated: 2026/01/14 12:43:02 by lhaydar          ###   ########.fr        #
+#    Created: 2026/03/16 02:56:18 by marvin            #+#    #+#              #
+#    Updated: 2026/03/16 02:56:20 by marvin           ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
-NAME =  push_swap
+NAME	= push_swap
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
+CC		= cc
+CFLAGS	= -Wall -Wextra -Werror
+RM		= rm -f
 
-SRC = ft_stack_utils_a.c ft_stack_utils_b.c ft_stack_main.c ft_push_swap_operations_a.c
+SRC		= source/ft_stack_main.c \
+		  source/operation/ft_push.c \
+		  source/operation/ft_reverse_rotate.c \
+		  source/operation/ft_rotate.c \
+		  source/operation/ft_swap.c \
+		  source/stack/ft_stack_utils_a.c \
+		  source/stack/ft_stack_utils_b.c
 
-OBJ = $(SRC:.c=.o)
+OBJ		= $(SRC:.c=.o)
 
-all: build-ftprintf build-libft $(NAME) 
+HEADER	= -I header/ -I Libft/ -I ft_printf/
 
-$(NAME): $(OBJ) ft_printf/libftprintf.a Libft/libft.a build-ftprintf build-libft
-	$(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a Libft/libft.a -o $(NAME)
+all: build-libft build-ftprintf $(NAME)
+
+$(NAME): $(OBJ) Libft/libft.a ft_printf/libftprintf.a
+	$(CC) $(CFLAGS) $(OBJ) Libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+
+build-libft:
+	$(MAKE) -C Libft
 
 build-ftprintf:
 	$(MAKE) -C ft_printf
 
-build-libft:
-	$(MAKE) -C Libft
-	
 clean:
 	$(RM) $(OBJ)
-	$(MAKE) -C ft_printf clean
 	$(MAKE) -C Libft clean
+	$(MAKE) -C ft_printf clean
 
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) -C ft_printf fclean
 	$(MAKE) -C Libft fclean
+	$(MAKE) -C ft_printf fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re build-libft build-ftprintf
