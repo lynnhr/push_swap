@@ -6,12 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 02:32:12 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/16 02:32:23 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/16 03:43:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "header/ft_stack.h"
-#include "header/ft_push_swap.h"
+#include "ft_push_swap.h"
 
 void ft_swap(t_stack *stack)
 {
@@ -22,8 +21,8 @@ void ft_swap(t_stack *stack)
 		return ;
 	tmp1 = ft_stack_pop(stack);
 	tmp2 = ft_stack_pop(stack);
-	ft_stack_push(stack, tmp2->value);
 	ft_stack_push(stack, tmp1->value);
+	ft_stack_push(stack, tmp2->value);
 	free(tmp1);
 	free(tmp2);
 }

@@ -6,12 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 02:32:40 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/16 02:33:20 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/16 03:17:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "header/ft_stack.h"
-#include "header/ft_push_swap.h"
+#include "ft_push_swap.h"
 
 void	ft_reverse_rotate(t_stack *stack)
 {

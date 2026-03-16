@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 02:56:18 by marvin            #+#    #+#              #
-#    Updated: 2026/03/16 02:56:20 by marvin           ###   ########.fr        #
+#    Updated: 2026/03/16 04:08:56 by marvin           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,7 +22,8 @@ SRC		= source/ft_stack_main.c \
 		  source/operation/ft_rotate.c \
 		  source/operation/ft_swap.c \
 		  source/stack/ft_stack_utils_a.c \
-		  source/stack/ft_stack_utils_b.c
+		  source/stack/ft_stack_utils_b.c \
+		  source/ft_test.c
 
 OBJ		= $(SRC:.c=.o)
 

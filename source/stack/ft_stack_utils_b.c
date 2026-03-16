@@ -6,18 +6,19 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:18:32 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/16 02:05:05 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/16 04:04:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "header/ft_stack.h"
-#include "header/ft_push_swap_operations.h"
+#include "ft_push_swap.h"
 
 int	ft_stack_size(t_stack *stack)
 {
 	t_node	*current;
 	int		rt_length;
 
+	if(!stack)
+		return (0);
 	current = stack->head;
 	rt_length = 0;
 	while (current)
@@ -67,12 +68,11 @@ void	ft_stack_print_top_down(t_stack *stack)
 	while (current)
 	{
 		ft_printf("%d", current->value);
-		if (current)
+		if (current->next)
 			ft_printf("<-");
 		current = current->next;
 	}
 	ft_printf("\n");
-	//free(current);
 }
 
 void	ft_stack_free(t_stack *stack)
