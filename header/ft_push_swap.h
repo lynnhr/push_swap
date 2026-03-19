@@ -6,13 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/16 03:14:52 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 01:11:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef FT_PUSH_SWAP__H
-# define FT_PUSH_SWAP__H
-
+#ifndef FT_PUSH_SWAP_H
+# define FT_PUSH_SWAP_H
 # include <stdio.h>
 # include <stdlib.h>
 # include "ft_stack.h"

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:18:32 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/16 04:04:34 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 01:17:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -17,7 +17,7 @@ int	ft_stack_size(t_stack *stack)
 	t_node	*current;
 	int		rt_length;
 
-	if(!stack)
+	if (!stack)
 		return (0);
 	current = stack->head;
 	rt_length = 0;
@@ -50,7 +50,6 @@ void	ft_stack_print_bottom_up(t_stack *stack)
 			ft_printf("->");
 	}
 	ft_printf("\n");
-	// free(current);
 	ft_stack_free(&aux);
 	return ;
 }

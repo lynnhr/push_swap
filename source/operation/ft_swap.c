@@ -6,17 +6,17 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 02:32:12 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/16 03:43:25 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 01:16:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ft_push_swap.h"
 
-void ft_swap(t_stack *stack)
+void	ft_swap(t_stack *stack)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
-	
+
 	if (!stack || ft_stack_size(stack) <= 1)
 		return ;
 	tmp1 = ft_stack_pop(stack);
@@ -27,18 +27,19 @@ void ft_swap(t_stack *stack)
 	free(tmp2);
 }
 
-void 	ft_sa(t_stack *a)
+void	ft_sa(t_stack *a)
 {
 	ft_swap(a);
 	ft_printf("sa\n");
 }
-void ft_sb(t_stack *b)
+
+void	ft_sb(t_stack *b)
 {
 	ft_swap(b);
 	ft_printf("sb\n");
 }
 
-void ft_ss(t_stack *a, t_stack *b)
+void	ft_ss(t_stack *a, t_stack *b)
 {
 	ft_swap(a);
 	ft_swap(b);

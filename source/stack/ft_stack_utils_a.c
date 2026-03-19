@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:18:22 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/16 03:17:46 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 01:16:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -40,7 +40,7 @@ t_node	*ft_stack_pop(t_stack *stack)
 {
 	t_node	*rt_node;
 
-	if ( !stack || ! stack->head)
+	if (!stack || ! stack->head)
 		return (0);
 	else
 	{

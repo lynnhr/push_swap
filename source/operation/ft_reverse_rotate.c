@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 02:32:40 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/16 03:17:58 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 01:18:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -15,7 +15,8 @@
 void	ft_reverse_rotate(t_stack *stack)
 {
 	t_node	*save;
-	t_node *current;
+	t_node	*current;
+
 	if (!stack || ft_stack_size(stack) <= 1)
 		return ;
 	current = stack->head;
@@ -32,7 +33,6 @@ void	ft_rra(t_stack *a)
 	ft_reverse_rotate(a);
 	ft_printf("rra\n");
 }
-
 
 void	ft_rrb(t_stack *b)
 {
