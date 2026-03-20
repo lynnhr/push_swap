@@ -1,30 +1,49 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_parsing_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 02:02:02 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/20 21:10:16 by marvin           ###   ########.fr       */
+/*   Created: 2026/03/20 17:44:28 by marvin            #+#    #+#             */
+/*   Updated: 2026/03/20 21:18:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include    "ft_push_swap.h"
+#include	"ft_push_swap.h"
 
-int	main(int argc, char **argv)
+long	ft_atol(char *str)
 {
-	t_stack	a;
-	t_stack	b;
+	long	n;
+	int		sign;
+	int		i;
 
-	if (!ft_valid_input(argv, argc))
+	n = 0;
+	sign = 1;
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	a = ft_stack_new();
-	b = ft_stack_new();
-	ft_stack_free(&a);
-	ft_stack_free(&b);
-	return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		n = n * 10 + (str[i] - '0');
+		i++;
+	}
+	return (n * sign);
+}
+
+void	ft_free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }

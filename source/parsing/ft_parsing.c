@@ -6,34 +6,30 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 01:20:12 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/20 03:05:18 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 21:17:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include	"ft_push_swap.h"
-#include	"ft_stack.h"
 
-long	ft_atol(char *str)
+int	ft_valid_input_arr(char **arr)
 {
-	long	n;
-	int		sign;
-	int		i;
-
-	n = 0;
-	sign = 1;
+	int	i;
+	int	n;
+	
 	i = 0;
-	if (str[i] == '+' || str[i] == '-')
+	n = 0;
+	while (arr[n])
+		n++;
+	while(arr[i])
 	{
-		if (str[i] == '-')
-			sign = -1;
+		if (!ft_valid_int(arr[i]))
+			return (0);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		n = n * 10 + (str[i] - '0');
-		i++;
-	}
-	return (n * sign);
+	if (ft_check_duplicates(arr, n))
+		return (0);
+	return (1);
 }
 
 int	ft_valid_int(char *str)
@@ -71,7 +67,7 @@ int	ft_check_duplicates(char **argv, int n)
 	while(i < n)
 	{
 		j = i + 1;
-		while(j < i)
+		while(j < n)
 		{
 			num_i = ft_atol(argv[i]);
 			num_j = ft_atol(argv[j]);
@@ -86,16 +82,17 @@ int	ft_check_duplicates(char **argv, int n)
 
 int	ft_valid_input(char **argv, int argc)
 {
-	int	i;
+	char **split;
+	int result;
 
-	i = 1;
-	while (i < argc)
+	if (argc == 2)
 	{
-		if (!ft_valid_int(argv[i]))
+		split = ft_split(argv[1], ' ');
+		if (!split)
 			return (0);
-		i++;
+		result = ft_valid_input_arr(split);
+		ft_free_split(split);
+		return (result);
 	}
-	if (ft_check_duplicates(argv + 1, argc - 1))
-		return (0);
-	return (1);
+	return (ft_valid_input_arr(argv + 1));
 }

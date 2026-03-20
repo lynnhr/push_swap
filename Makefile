@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 02:56:18 by marvin            #+#    #+#              #
-#    Updated: 2026/03/20 03:03:51 by marvin           ###   ########.fr        #
+#    Updated: 2026/03/20 17:44:19 by marvin           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,7 +23,8 @@ SRC		= source/main.c \
 		  source/operation/ft_swap.c \
 		  source/stack/ft_stack_utils_a.c \
 		  source/stack/ft_stack_utils_b.c \
-		  source/ft_parsing.c \
+		  source/parsing/ft_parsing.c \
+		  source/parsing/ft_parsing_utils.c \
 
 OBJ		= $(SRC:.c=.o)
 
