@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 02:56:18 by marvin            #+#    #+#              #
-#    Updated: 2026/03/16 04:08:56 by marvin           ###   ########.fr        #
+#    Updated: 2026/03/20 03:03:51 by marvin           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,14 +16,14 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
 
-SRC		= source/ft_stack_main.c \
+SRC		= source/main.c \
 		  source/operation/ft_push.c \
 		  source/operation/ft_reverse_rotate.c \
 		  source/operation/ft_rotate.c \
 		  source/operation/ft_swap.c \
 		  source/stack/ft_stack_utils_a.c \
 		  source/stack/ft_stack_utils_b.c \
-		  source/ft_test.c
+		  source/ft_parsing.c \
 
 OBJ		= $(SRC:.c=.o)
 

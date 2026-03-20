@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:32:33 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/16 03:13:35 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 03:13:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "libft.h"
 # include "ft_printf.h"
 
 typedef struct s_node

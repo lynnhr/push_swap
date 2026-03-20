@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/20 01:11:16 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 03:10:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "ft_stack.h"
+
 
 void	ft_rotate(t_stack *stack);
 void	ft_ra(t_stack *a);
@@ -34,5 +35,10 @@ void	ft_ss(t_stack *a, t_stack *b);
 void	ft_push(t_stack *src, t_stack *dst);
 void	ft_pa(t_stack *a, t_stack *b);
 void	ft_pb(t_stack *a, t_stack *b);
+
+int	ft_valid_input(char **argv, int argc);
+int	ft_valid_int(char *str);
+int	ft_check_duplicates(char **argv, int n);
+long	ft_atol(char *str);
 
 #endif
