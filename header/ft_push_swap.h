@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/20 23:21:01 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/21 00:11:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -42,5 +42,7 @@ int		ft_valid_input(char **arr);
 void	ft_free_split(char **split);
 void	ft_populate_stack(t_stack *a, char **args);
 char	**ft_get_args(int argc, char **argv);
+void	ft_assign_indices(t_stack *a);
+void	ft_stack_print_indices(t_stack *stack);
 
 #endif
