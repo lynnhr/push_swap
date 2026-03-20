@@ -1,38 +1,28 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_populate_stack.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 02:02:02 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/20 23:28:26 by marvin           ###   ########.fr       */
+/*   Created: 2026/03/20 22:00:39 by marvin            #+#    #+#             */
+/*   Updated: 2026/03/20 23:28:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_populate_stack(t_stack *a, char **args)
 {
-	char	**args;
-	t_stack	a;
-	t_stack	b;
+	int	i;
 
-	if (argc < 2)
-		return (0);
-	args = ft_get_args(argc, argv);
-	if (!args || !ft_valid_input(args))
+	i = 0;
+	while (args[i])
+		i++;
+	i--;
+	while (i >= 0)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		ft_stack_push(a, ft_atoi(args[i]));
+		i--;
 	}
-	a = ft_stack_new();
-	b = ft_stack_new();
-	ft_populate_stack(&a, args);
-	ft_stack_print_top_down(&a);
-	if (argc == 2)
-		ft_free_split(args);
-	ft_stack_free(&a);
-	ft_stack_free(&b);
-	return (0);
 }

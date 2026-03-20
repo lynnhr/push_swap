@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/20 21:42:08 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 23:21:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -35,11 +35,12 @@ void	ft_push(t_stack *src, t_stack *dst);
 void	ft_pa(t_stack *a, t_stack *b);
 void	ft_pb(t_stack *a, t_stack *b);
 
-int		ft_valid_input(char **argv, int argc);
 int		ft_valid_int(char *str);
 int		ft_check_duplicates(char **argv, int n);
 long	ft_atol(char *str);
-int		ft_valid_input_arr(char **arr);
+int		ft_valid_input(char **arr);
 void	ft_free_split(char **split);
+void	ft_populate_stack(t_stack *a, char **args);
+char	**ft_get_args(int argc, char **argv);
 
 #endif

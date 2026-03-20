@@ -6,30 +6,17 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 01:20:12 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/20 21:39:14 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 23:20:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ft_push_swap.h"
 
-int	ft_valid_input_arr(char **arr)
+char	**ft_get_args(int argc, char **argv)
 {
-	int	i;
-	int	n;
-
-	i = 0;
-	n = 0;
-	while (arr[n])
-		n++;
-	while (arr[i])
-	{
-		if (!ft_valid_int(arr[i]))
-			return (0);
-		i++;
-	}
-	if (ft_check_duplicates(arr, n))
-		return (0);
-	return (1);
+	if (argc == 2)
+		return (ft_split(argv[1], ' '));
+	return (argv + 1);
 }
 
 int	ft_valid_int(char *str)
@@ -56,19 +43,22 @@ int	ft_valid_int(char *str)
 	return (1);
 }
 
-int	ft_valid_input(char **argv, int argc)
+int	ft_valid_input(char **arr)
 {
-	char	**split;
-	int		result;
+	int	i;
+	int	n;
 
-	if (argc == 2)
+	i = 0;
+	n = 0;
+	while (arr[n])
+		n++;
+	while (arr[i])
 	{
-		split = ft_split(argv[1], ' ');
-		if (!split)
+		if (!ft_valid_int(arr[i]))
 			return (0);
-		result = ft_valid_input_arr(split);
-		ft_free_split(split);
-		return (result);
+		i++;
 	}
-	return (ft_valid_input_arr(argv + 1));
+	if (ft_check_duplicates(arr, n))
+		return (0);
+	return (1);
 }
