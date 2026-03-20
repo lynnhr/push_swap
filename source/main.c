@@ -6,11 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 02:02:02 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/20 21:10:16 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/20 21:38:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include    "ft_push_swap.h"
+#include "ft_push_swap.h"
 
 int	main(int argc, char **argv)
 {
