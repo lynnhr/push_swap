@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 22:05:45 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/22 00:30:08 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/22 00:56:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -35,7 +35,5 @@ t_strategy	ft_get_strategy(char *flag)
 		return (MEDIUM);
 	if (ft_strncmp(flag, "--complex", 10) == 0)
 		return (COMPLEX);
-	// if (ft_strncmp(str, "--bench", 8) == 0)
-	// 	return (BENCH);
 	return (ADAPTIVE);
 }
