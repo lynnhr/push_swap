@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/21 00:11:54 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/21 02:55:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -44,5 +44,10 @@ void	ft_populate_stack(t_stack *a, char **args);
 char	**ft_get_args(int argc, char **argv);
 void	ft_assign_indices(t_stack *a);
 void	ft_stack_print_indices(t_stack *stack);
+void	ft_init_stacks(t_stack *a, t_stack *b, char **args);
+void	ft_cleanup(t_stack *a, t_stack *b, char **args, int is_split);
+
+double	ft_compute_disorder(t_stack *a);
+void	ft_putdouble(double n, int decimals);
 
 #endif
