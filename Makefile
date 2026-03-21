@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 02:56:18 by marvin            #+#    #+#              #
-#    Updated: 2026/03/21 01:13:49 by marvin           ###   ########.fr        #
+#    Updated: 2026/03/21 22:05:13 by marvin           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -25,8 +25,10 @@ SRC		= source/main.c \
 		  source/stack/ft_stack_utils_b.c \
 		  source/parsing/ft_parsing.c \
 		  source/parsing/ft_parsing_utils.c \
+		  source/parsing/ft_parsing_flags.c \
 		  source/parsing/ft_populate_stack.c \
-		  source/ft_compute_disorder.c
+		  source/ft_compute_disorder.c \
+		  source/sorting/ft_radix_sort.c
 
 OBJ		= $(SRC:.c=.o)
 

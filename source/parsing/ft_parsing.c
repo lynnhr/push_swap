@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 01:20:12 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/20 23:20:40 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/22 00:36:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,9 +14,14 @@
 
 char	**ft_get_args(int argc, char **argv)
 {
-	if (argc == 2)
-		return (ft_split(argv[1], ' '));
-	return (argv + 1);
+	int	skip;
+
+	skip = 1;
+	while (skip < argc && ft_flag(argv[skip]))
+		skip++;
+	if (argc == skip + 1)
+		return (ft_split(argv[skip], ' '));
+	return (argv + skip);
 }
 
 int	ft_valid_int(char *str)
