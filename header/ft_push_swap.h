@@ -6,7 +6,7 @@
 /*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/23 12:57:19 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/03/23 13:29:19 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void		ft_putdouble(double n, int decimals);
 
 int			ft_count_bits(int n);
 void		ft_radix_sort(t_stack *a, t_stack *b);
+int			ft_is_sorted(t_stack *a);
 
 #endif
