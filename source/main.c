@@ -6,7 +6,7 @@
 /*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 02:02:02 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/23 12:50:38 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/03/23 13:01:51 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int	main(int argc, char **argv)
 	ft_printf("disorder: ");
 	ft_putdouble(ft_compute_disorder(&a), 2);
 	ft_printf("\n");
+	ft_radix_sort(&a, &b);
+	ft_stack_print_top_down(&a);
+	ft_stack_print_indices(&a);
+	ft_printf("n=%d bits=%d\n", ft_stack_size(&a), ft_count_bits(ft_stack_size(&a)));
+	ft_stack_print_top_down(&b);
 	ft_cleanup(&a, &b, args, argc == 2);
 	return (0);
 }
