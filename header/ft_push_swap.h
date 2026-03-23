@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/03/22 00:55:58 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 12:51:37 by lhaydar          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H
 # define FT_PUSH_SWAP_H
@@ -64,5 +64,6 @@ double		ft_compute_disorder(t_stack *a);
 void		ft_putdouble(double n, int decimals);
 
 int			ft_count_bits(int n);
+void	ft_radix_sort(t_stack *a, t_stack *b);
 
 #endif

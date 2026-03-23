@@ -1,23 +1,23 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 02:02:02 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/22 00:35:04 by marvin           ###   ########.fr       */
+/*   Updated: 2026/03/23 12:50:38 by lhaydar          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	char	**args;
+	char		**args;
 	t_stack		a;
 	t_stack		b;
-	t_strategy strategy;
+	t_strategy	strategy;
 	int			bench;
 	int			i;
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	bench = 0;
 	(void)bench;
 	if (ft_flag(argv[1]) && argc == 2)
-    	return (0);
+		return (0);
 	strategy = ADAPTIVE;
 	while (i < argc && ft_flag(argv[i]))
 	{

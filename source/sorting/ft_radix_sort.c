@@ -6,18 +6,16 @@
 /*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 03:03:59 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/23 12:23:02 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/03/23 12:56:07 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-//TESTINGGGGG
-
 int	ft_count_bits(int n)
 {
-    int	bits;
-	
+	int	bits;
+
 	bits = 0;
 	while (n >> bits)
 		bits++;
@@ -26,21 +24,26 @@ int	ft_count_bits(int n)
 
 void	ft_radix_sort(t_stack *a, t_stack *b)
 {
+	int	n;
 	int	bits;
-	int	i;
-	t_node	*current;
-	
-	current = a -> head;
-	i = 0;
-	bits = ft_count_bits(a->value);
-	while( i <= bits)
+	int	bit;
+
+	n = ft_stack_size(a);
+	bits = ft_count_bits(n);
+	bit = 0;
+	while (bit < bits)
 	{
-		while(current)
+		i = 0;
+		while (i < n)
 		{
-			if()
-			current = current->next;
+			if ((a->head->index >> bit) & 1)
+				ft_pb(a, b);
+			else
+				ft_ra(a);
+			i++;
 		}
-		current-> value >> 1;
-		i++;
+		while (ft_stack_size(b) > 0)
+			ft_pa(a, b);
+		bit++;
 	}
 }
