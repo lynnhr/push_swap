@@ -6,7 +6,7 @@
 /*   By: lhaydar <lhaydar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 03:03:59 by marvin            #+#    #+#             */
-/*   Updated: 2026/03/23 13:28:42 by lhaydar          ###   ########.fr       */
+/*   Updated: 2026/03/23 14:30:31 by lhaydar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	ft_count_bits(int n)
 
 int	ft_is_sorted(t_stack *a)
 {
-	t_node *current;
-	
+	t_node	*current;
+
 	current = a->head;
 	while (current && current->next)
 	{
