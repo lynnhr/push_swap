@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 03:03:59 by marvin            #+#    #+#             */
-/*   Updated: 2026/04/11 01:37:32 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/11 02:17:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -24,24 +24,41 @@ int	ft_count_bits(int n)
 
 int	ft_is_sorted(t_stack *a)
 {
-    int n    = ft_stack_size(a);  // n = 5
-    int bits = ft_count_bits(n);  // bits = 3 (need 3 bits for 5 elements)
-    int bit  = 0;
+	t_node	*current;
 
-    while (bit < bits)            // do 3 passes (bit=0, bit=1, bit=2)
-    {
-        int i = 0;
-        while (i < n)             // go through ALL 5 elements
-        {
-            if ((a->head->index >> bit) & 1)  // check current top's bit
-                ft_pb(a, b);      // bit=1 → send to b
-            else
-                ft_ra(a);         // bit=0 → rotate to bottom
-            i++;                  // either way, processed one element
-        }
-        while (ft_stack_size(b) > 0)
-            ft_pa(a, b);          // push everything back from b to a
-        bit++;                    // next bit
-    }
+	current = a->head;
+	while (current && current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }
 
+void	ft_radix_sort(t_stack *a, t_stack *b)
+{
+	int	n;
+	int	bits;
+	int	bit;
+	int	i;
+
+	n = ft_stack_size(a);
+	bits = ft_count_bits(n);
+	bit = 0;
+	while (bit < bits)
+	{
+		i = 0;
+		while (i < n)
+		{
+			if (!((a->head->index >> bit) & 1))
+				ft_pb(a, b);
+			else
+				ft_ra(a);
+			i++;
+		}
+		while (ft_stack_size(b) > 0)
+			ft_pa(a, b);
+		bit++;
+	}
+}
