@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 02:02:02 by marvin            #+#    #+#             */
-/*   Updated: 2026/04/12 00:19:10 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/12 02:32:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -54,7 +54,10 @@ int	main(int argc, char **argv)
 			ft_selection_sort(&a, &b);
 		else if (strategy == MEDIUM)
 			ft_chunk_sort(&a, &b);
+		else
+			ft_adaptive_sort(&a, &b);
 	}
+
 	ft_cleanup(&a, &b, args, argc == 2);
 	return (0);
 }
