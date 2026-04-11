@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/04/11 03:00:48 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/12 00:10:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -72,6 +72,10 @@ void		ft_bring_to_top(t_stack *a, int pos);
 void		ft_selection_sort(t_stack *a, t_stack *b);
 
 int			ft_squareroot(int n);
-
+int			ft_find_max_index(t_stack *b);
+void		ft_bring_max_to_top(t_stack *b);
+void		ft_pull_back(t_stack *a, t_stack *b);
+void		ft_push_chunks(t_stack *a, t_stack *b, int size, int chunk_size);
+void		ft_chunk_sort(t_stack *a, t_stack *b);
 
 #endif

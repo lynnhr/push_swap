@@ -6,36 +6,40 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 02:26:18 by marvin            #+#    #+#             */
-/*   Updated: 2026/04/11 03:11:13 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/12 00:29:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ft_push_swap.h"
 
-int	ft_squareroot(int n)
+void	ft_push_chunks(t_stack *a, t_stack *b, int size, int chunk_size)
 {
+	int	threshold;
 	int	i;
 
-	i = 1;
-	while (i * i < n)
-		i++;
-	return (i);
+	threshold = chunk_size;
+	while (ft_stack_size(a) > 0)
+	{
+		i = 0;
+		while (i < size && a->head)
+		{
+			if (a->head->index < threshold)
+				ft_pb(a, b);
+			else
+				ft_ra(a);
+			i++;
+		}
+		threshold += chunk_size;
+	}
 }
 
 void	ft_chunk_sort(t_stack *a, t_stack *b)
 {
 	int	size;
-	int	chunks;
-	int	i;
-	
-	size = ft_stack_size(a);
-	chunks = ft_squareroot(size);
-	i = 0;
-	while (i < chunks)
-	{
-		i++;
-	}
+	int	chunk_size;
 
-	
-	
+	size = ft_stack_size(a);
+	chunk_size = ft_squareroot(size);
+	ft_push_chunks(a, b, size, chunk_size);
+	ft_pull_back(a, b);
 }
