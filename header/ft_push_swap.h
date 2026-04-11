@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 19:42:08 by atchelde          #+#    #+#             */
-/*   Updated: 2026/04/11 02:25:23 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/11 03:00:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -70,5 +70,8 @@ int			ft_is_sorted(t_stack *a);
 int			ft_find_min_pos(t_stack *a);
 void		ft_bring_to_top(t_stack *a, int pos);
 void		ft_selection_sort(t_stack *a, t_stack *b);
+
+int			ft_squareroot(int n);
+
 
 #endif

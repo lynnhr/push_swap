@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 02:56:18 by marvin            #+#    #+#              #
-#    Updated: 2026/04/11 02:07:42 by marvin           ###   ########.fr        #
+#    Updated: 2026/04/11 03:00:28 by marvin           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -30,6 +30,7 @@ SRC		= source/main.c \
 		  source/ft_compute_disorder.c \
 		  source/sorting/ft_radix_sort.c \
 		  source/sorting/ft_selection_sort.c
+		  source/sorting/ft_chunk_sort.c
 
 OBJ		= $(SRC:.c=.o)
 
