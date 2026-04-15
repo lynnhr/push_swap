@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/16 02:56:18 by marvin            #+#    #+#              #
-#    Updated: 2026/04/12 02:16:55 by marvin           ###   ########.fr        #
+#    Updated: 2026/04/12 17:14:52 by marvin           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,7 +27,6 @@ SRC		= source/main.c \
 		  source/parsing/ft_parsing_utils.c \
 		  source/parsing/ft_parsing_flags.c \
 		  source/parsing/ft_populate_stack.c \
-		  source/ft_compute_disorder.c \
 		  source/sorting/ft_radix_sort.c \
 		  source/sorting/ft_selection_sort.c \
 		  source/sorting/ft_chunk_sort.c \

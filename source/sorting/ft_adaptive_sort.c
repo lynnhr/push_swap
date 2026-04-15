@@ -6,66 +6,61 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 00:41:12 by marvin            #+#    #+#             */
-/*   Updated: 2026/04/12 02:31:18 by marvin           ###   ########.fr       */
+/*   Updated: 2026/04/12 17:13:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "ft_push_swap.h"
 
-void	ft_rotate_to_pos(t_stack *a, int pos)
+void	ft_putdouble(double n, int decimals)
 {
-	int	size;
+	int		integer_part;
+	int		decimal_part;
+	double	multiplier;
+	int		i;
 
-	size = ft_stack_size(a);
-	if (pos <= size / 2)
-		while (pos-- > 0)
-			ft_ra(a);
-	else
+	if (n < 0)
 	{
-		pos = size - pos;
-		while (pos-- > 0)
-			ft_rra(a);
+		ft_putchar_fd('-', 1);
+		n = -n;
 	}
+	integer_part = (int)n;
+	ft_putnbr_fd(integer_part, 1);
+	ft_putchar_fd('.', 1);
+	multiplier = 1;
+	i = 0;
+	while (i < decimals)
+	{
+		multiplier *= 10;
+		i++;
+	}
+	decimal_part = (int)((n - integer_part) * multiplier);
+	ft_putnbr_fd(decimal_part, 1);
 }
 
-void	ft_insert_from_b(t_stack *a, t_stack *b)
+double	ft_compute_disorder(t_stack *a)
 {
-	t_node	*current;
-	int		target;
-	int		pos;
+	double		mistakes;
+	double		total_pairs;
+	t_node		*current1;
+	t_node		*current2;
 
-	target = b->head->index - 1;
-	if (target < 0 || ft_stack_size(a) == 0)
+	mistakes = 0;
+	total_pairs = 0;
+	current1 = a->head;
+	while (current1)
 	{
-		ft_pa(a, b);
-		if (target < 0 && ft_stack_size(a) > 1)
-			ft_rra(a);
-		return ;
+		current2 = current1->next;
+		while (current2)
+		{
+			total_pairs += 1;
+			if (current1->value > current2->value)
+				mistakes += 1;
+			current2 = current2->next;
+		}
+		current1 = current1->next;
 	}
-	current = a->head;
-	pos = 0;
-	while (current && current->index != target)
-	{
-		pos++;
-		current = current->next;
-	}
-	if (!current)
-		pos = 0;
-	else
-		pos++;          // ← add this, go one past target
-	ft_rotate_to_pos(a, pos);
-	ft_pa(a, b);
-}
-
-void	ft_linear_sort(t_stack *a, t_stack *b)
-{
-	// int	size;
-
-	// size = ft_stack_size(a);
-	while (ft_stack_size(a) > 0)
-		ft_pb(a, b);
-	while (ft_stack_size(b) > 0)
-		ft_insert_from_b(a, b);
+	return (mistakes / total_pairs);
 }
 
 void	ft_adaptive_sort(t_stack *a, t_stack *b)
@@ -73,9 +68,11 @@ void	ft_adaptive_sort(t_stack *a, t_stack *b)
 	double	disorder;
 
 	disorder = ft_compute_disorder(a);
-	if (disorder < 0.2)
-		ft_linear_sort(a, b);
-	else if (disorder < 0.5)
+	if (disorder == 0.0)
+		return ;
+	else if (disorder < 0.2)
+		ft_selection_sort(a, b);
+	else if (disorder < 0.3)
 		ft_chunk_sort(a, b);
 	else
 		ft_radix_sort(a, b);
