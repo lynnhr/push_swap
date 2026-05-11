@@ -24,14 +24,24 @@ void	ft_push(t_stack *src, t_stack *dest)
 	free(tmp);
 }
 
-void	ft_pa(t_stack *a, t_stack *b)
+void	ft_pa(t_stack *a, t_stack *b, t_bench *bench)
 {
 	ft_push(b, a);
+	if (bench)
+	{
+		bench->pa++;
+		bench->total++;
+	}
 	ft_printf("pa\n");
 }
 
-void	ft_pb(t_stack *a, t_stack *b)
+void	ft_pb(t_stack *a, t_stack *b, t_bench *bench)
 {
 	ft_push(a, b);
+	if (bench)
+	{
+		bench->pb++;
+		bench->total++;
+	}
 	ft_printf("pb\n");
 }

@@ -17,6 +17,7 @@ CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
 
 SRC		= source/main.c \
+		  source/ft_bench.c \
 		  source/operation/ft_push.c \
 		  source/operation/ft_reverse_rotate.c \
 		  source/operation/ft_rotate.c \

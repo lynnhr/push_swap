@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_chunk_sort_helper.c                             :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2026/04/11 23:50:14 by marvin            #+#    #+#             */
 /*   Updated: 2026/04/12 00:31:11 by marvin           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
@@ -38,7 +38,7 @@ int	ft_find_max_index(t_stack *b)
 	return (max);
 }
 
-void	ft_bring_max_to_top(t_stack *b)
+void	ft_bring_max_to_top(t_stack *b, t_bench *bench)
 {
 	int		max_idx;
 	int		pos;
@@ -56,20 +56,20 @@ void	ft_bring_max_to_top(t_stack *b)
 	}
 	if (pos <= size / 2)
 		while (pos-- > 0)
-			ft_rb(b);
+			ft_rb(b, bench);
 	else
 	{
 		pos = size - pos;
 		while (pos-- > 0)
-			ft_rrb(b);
+			ft_rrb(b, bench);
 	}
 }
 
-void	ft_pull_back(t_stack *a, t_stack *b)
+void	ft_pull_back(t_stack *a, t_stack *b, t_bench *bench)
 {
 	while (ft_stack_size(b) > 0)
 	{
-		ft_bring_max_to_top(b);
-		ft_pa(a, b);
+		ft_bring_max_to_top(b, bench);
+		ft_pa(a, b, bench);
 	}
 }

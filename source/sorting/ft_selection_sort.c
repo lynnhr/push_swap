@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_selection_sort.c                                :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2026/04/10 01:06:18 by marvin            #+#    #+#             */
 /*   Updated: 2026/04/11 02:19:02 by marvin           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
@@ -36,7 +36,7 @@ int	ft_find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-void	ft_bring_to_top(t_stack *a, int pos)
+void	ft_bring_to_top(t_stack *a, int pos, t_bench *bench)
 {
 	int	size;
 	int	rotations;
@@ -46,26 +46,26 @@ void	ft_bring_to_top(t_stack *a, int pos)
 	{
 		rotations = pos;
 		while (rotations-- > 0)
-			ft_ra(a);
+			ft_ra(a, bench);
 	}
 	else
 	{
 		rotations = size - pos;
 		while (rotations-- > 0)
-			ft_rra(a);
+			ft_rra(a, bench);
 	}
 }
 
-void	ft_selection_sort(t_stack *a, t_stack *b)
+void	ft_selection_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	pos;
 
 	while (ft_stack_size(a) > 1)
 	{
 		pos = ft_find_min_pos(a);
-		ft_bring_to_top(a, pos);
-		ft_pb(a, b);
+		ft_bring_to_top(a, pos, bench);
+		ft_pb(a, b, bench);
 	}
 	while (ft_stack_size(b) > 0)
-		ft_pa(a, b);
+		ft_pa(a, b, bench);
 }

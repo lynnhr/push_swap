@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_radix_sort.c                                    :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2026/03/21 03:03:59 by marvin            #+#    #+#             */
 /*   Updated: 2026/04/11 02:17:36 by marvin           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
@@ -36,7 +36,7 @@ int	ft_is_sorted(t_stack *a)
 	return (1);
 }
 
-void	ft_radix_sort(t_stack *a, t_stack *b)
+void	ft_radix_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	n;
 	int	bits;
@@ -52,13 +52,13 @@ void	ft_radix_sort(t_stack *a, t_stack *b)
 		while (i < n)
 		{
 			if (!((a->head->index >> bit) & 1))
-				ft_pb(a, b);
+				ft_pb(a, b, bench);
 			else
-				ft_ra(a);
+				ft_ra(a, bench);
 			i++;
 		}
 		while (ft_stack_size(b) > 0)
-			ft_pa(a, b);
+			ft_pa(a, b, bench);
 		bit++;
 	}
 }

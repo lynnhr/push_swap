@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_adaptive_sort.c                                 :+:      :+:    :+:   */
@@ -8,11 +8,11 @@
 /*   Created: 2026/04/12 00:41:12 by marvin            #+#    #+#             */
 /*   Updated: 2026/04/12 17:13:33 by marvin           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_putdouble(double n, int decimals)
+void	ft_putdouble(double n, int decimals, int fd)
 {
 	int		integer_part;
 	int		decimal_part;
@@ -21,12 +21,12 @@ void	ft_putdouble(double n, int decimals)
 
 	if (n < 0)
 	{
-		ft_putchar_fd('-', 1);
+		ft_putchar_fd('-', fd);
 		n = -n;
 	}
 	integer_part = (int)n;
-	ft_putnbr_fd(integer_part, 1);
-	ft_putchar_fd('.', 1);
+	ft_putnbr_fd(integer_part, fd);
+	ft_putchar_fd('.', fd);
 	multiplier = 1;
 	i = 0;
 	while (i < decimals)
@@ -35,7 +35,7 @@ void	ft_putdouble(double n, int decimals)
 		i++;
 	}
 	decimal_part = (int)((n - integer_part) * multiplier);
-	ft_putnbr_fd(decimal_part, 1);
+	ft_putnbr_fd(decimal_part, fd);
 }
 
 double	ft_compute_disorder(t_stack *a)
@@ -63,7 +63,7 @@ double	ft_compute_disorder(t_stack *a)
 	return (mistakes / total_pairs);
 }
 
-void	ft_adaptive_sort(t_stack *a, t_stack *b)
+void	ft_adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 {
 	double	disorder;
 
@@ -71,9 +71,9 @@ void	ft_adaptive_sort(t_stack *a, t_stack *b)
 	if (disorder == 0.0)
 		return ;
 	else if (disorder < 0.2)
-		ft_selection_sort(a, b);
+		ft_selection_sort(a, b, bench);
 	else if (disorder < 0.3)
-		ft_chunk_sort(a, b);
+		ft_chunk_sort(a, b, bench);
 	else
-		ft_radix_sort(a, b);
+		ft_radix_sort(a, b, bench);
 }

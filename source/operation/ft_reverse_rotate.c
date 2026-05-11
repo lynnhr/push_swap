@@ -28,21 +28,36 @@ void	ft_reverse_rotate(t_stack *stack)
 	stack->head = save;
 }
 
-void	ft_rra(t_stack *a)
+void	ft_rra(t_stack *a, t_bench *bench)
 {
 	ft_reverse_rotate(a);
+	if (bench)
+	{
+		bench->rra++;
+		bench->total++;
+	}
 	ft_printf("rra\n");
 }
 
-void	ft_rrb(t_stack *b)
+void	ft_rrb(t_stack *b, t_bench *bench)
 {
 	ft_reverse_rotate(b);
+	if (bench)
+	{
+		bench->rrb++;
+		bench->total++;
+	}
 	ft_printf("rrb\n");
 }
 
-void	ft_rrr(t_stack *a, t_stack *b)
+void	ft_rrr(t_stack *a, t_stack *b, t_bench *bench)
 {
 	ft_reverse_rotate(a);
 	ft_reverse_rotate(b);
+	if (bench)
+	{
+		bench->rrr++;
+		bench->total++;
+	}
 	ft_printf("rrr\n");
 }
