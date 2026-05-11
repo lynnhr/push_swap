@@ -23,13 +23,14 @@
 - Chunk sort O(n√n) — --medium
 - Adaptive selector — --adaptive (default)
 - Benchmark mode (--bench) — fully implemented ✅
+- Verified correct with checker_linux on 100 and 500 numbers ✅
   - All 11 operation signatures accept t_bench*
   - All sorting function signatures accept t_bench*
   - ft_sort and ft_run thread t_bench* through
   - ft_print_bench prints disorder/strategy/total/per-op to stderr
 
 ### Remaining TODO ⬜
-- Final testing with checker_linux
+- Nothing. Project is complete.
 
 ---
 
