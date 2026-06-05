@@ -76,8 +76,8 @@ Measures the disorder of the input (fraction of inversions) and selects the chea
 
 ```
 disorder < 0.2   →  selection sort   (nearly sorted)
-disorder < 0.3   →  chunk sort
-disorder >= 0.3  →  radix sort
+disorder < 0.5   →  chunk sort
+disorder >= 0.5  →  radix sort
 ```
 
 ---
