@@ -138,13 +138,51 @@ Tested against the 42 grading thresholds:
 
 ---
 
-## Validation
+## Testing
+
+### Small inputs
 
 ```bash
-# generate random input and verify output
-ARG=$(shuf -i 1-500 -n 100 | tr '\n' ' ')
-./push_swap $ARG | ./checker_linux $ARG
+ARG="2 1";       ./push_swap $ARG | wc -l; ./push_swap $ARG | ./checker_linux $ARG
+ARG="3 2 1";     ./push_swap $ARG | wc -l; ./push_swap $ARG | ./checker_linux $ARG
+ARG="1 5 2 4 3"; ./push_swap $ARG | wc -l; ./push_swap $ARG | ./checker_linux $ARG
+ARG="4 67 3 87 23"; ./push_swap --adaptive $ARG | wc -l; ./push_swap --adaptive $ARG | ./checker_linux $ARG
 ```
+
+### 100 random numbers — all strategies
+
+```bash
+ARG=$(shuf -i 0-9999 -n 100 | tr '\n' ' ')
+echo "adaptive:"; ./push_swap $ARG | wc -l;           ./push_swap $ARG | ./checker_linux $ARG
+echo "complex:";  ./push_swap --complex $ARG | wc -l; ./push_swap --complex $ARG | ./checker_linux $ARG
+echo "medium:";   ./push_swap --medium $ARG | wc -l;  ./push_swap --medium $ARG | ./checker_linux $ARG
+echo "simple:";   ./push_swap --simple $ARG | wc -l;  ./push_swap --simple $ARG | ./checker_linux $ARG
+```
+
+### 500 random numbers — bench mode
+
+```bash
+ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' ')
+./push_swap --bench $ARG 2>bench.txt | ./checker_linux $ARG
+cat bench.txt
+
+./push_swap --bench --adaptive $ARG 2>&1 >/dev/null
+./push_swap --bench --complex  $ARG 2>&1 >/dev/null
+./push_swap --bench --simple   $ARG 2>&1 >/dev/null
+```
+
+### Memory leak checks (valgrind)
+
+```bash
+valgrind --leak-check=full ./push_swap 5 4 3 2 1
+valgrind --leak-check=full ./push_swap 1 2 3
+valgrind --leak-check=full ./push_swap abc
+valgrind --leak-check=full ./push_swap 1 2 2
+valgrind --leak-check=full "./push_swap" "5 3 1 4 2"
+valgrind --leak-check=full ./push_swap $(shuf -i 0-999 -n 100 | tr '\n' ' ')
+```
+
+All runs should report `All heap blocks were freed -- no leaks are possible` and `ERROR SUMMARY: 0 errors`.
 
 ---
 
