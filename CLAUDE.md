@@ -49,8 +49,8 @@
 ## Adaptive Thresholds
 ```
 disorder < 0.2  → selection sort  (O(n²), fast for nearly sorted)
-disorder < 0.3  → chunk sort      (O(n√n))
-disorder >= 0.3 → radix sort      (O(n log n))
+disorder < 0.5  → chunk sort      (O(n√n))
+disorder >= 0.5 → radix sort      (O(n log n))
 ```
 
 ---

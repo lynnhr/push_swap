@@ -72,7 +72,7 @@ void	ft_adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 		return ;
 	else if (disorder < 0.2)
 		ft_selection_sort(a, b, bench);
-	else if (disorder < 0.3)
+	else if (disorder < 0.5)
 		ft_chunk_sort(a, b, bench);
 	else
 		ft_radix_sort(a, b, bench);
