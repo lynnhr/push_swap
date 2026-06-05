@@ -1,0 +1,13 @@
+# compiled objects and libraries
+*.o
+*.a
+
+# binaries
+push_swap
+checker_linux
+
+# build artifacts
+bench.txt
+
+CLAUDE.md
+push_swap_subject.pdf
