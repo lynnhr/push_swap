@@ -61,12 +61,6 @@ static void	ft_print_ops_rotate(t_bench *b)
 	ft_putchar_fd('\n', 2);
 }
 
-void	ft_print_count(t_bench *b)
-{
-	ft_putnbr_fd(b->total, 2);
-	ft_putchar_fd('\n', 2);
-}
-
 void	ft_print_bench(t_bench *b, t_strategy s, double disorder)
 {
 	ft_putstr_fd("[bench] disorder: ", 2);

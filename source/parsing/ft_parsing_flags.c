@@ -24,8 +24,6 @@ int	ft_flag(char *str)
 		return (1);
 	if (ft_strncmp(str, "--bench", 8) == 0)
 		return (1);
-	if (ft_strncmp(str, "--count", 8) == 0)
-		return (1);
 	return (0);
 }
 

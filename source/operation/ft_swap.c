@@ -34,8 +34,7 @@ void	ft_sa(t_stack *a, t_bench *bench)
 		bench->sa++;
 		bench->total++;
 	}
-	if (!bench || !bench->silent)
-		ft_printf("sa\n");
+	ft_printf("sa\n");
 }
 
 void	ft_sb(t_stack *b, t_bench *bench)
@@ -46,8 +45,7 @@ void	ft_sb(t_stack *b, t_bench *bench)
 		bench->sb++;
 		bench->total++;
 	}
-	if (!bench || !bench->silent)
-		ft_printf("sb\n");
+	ft_printf("sb\n");
 }
 
 void	ft_ss(t_stack *a, t_stack *b, t_bench *bench)
@@ -59,6 +57,5 @@ void	ft_ss(t_stack *a, t_stack *b, t_bench *bench)
 		bench->ss++;
 		bench->total++;
 	}
-	if (!bench || !bench->silent)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }

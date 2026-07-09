@@ -22,8 +22,6 @@ void	ft_parse_flags(int argc, char **argv,
 	{
 		if (ft_strncmp(argv[i], "--bench", 8) == 0)
 			*bench = 1;
-		else if (ft_strncmp(argv[i], "--count", 8) == 0)
-			*bench = 2;
 		else
 			*strategy = ft_get_strategy(argv[i]);
 		i++;
@@ -61,15 +59,11 @@ void	ft_run(t_stack *a, t_stack *b, t_strategy strategy, int do_bench)
 
 	ft_bzero(&bench, sizeof(t_bench));
 	disorder = 0.0;
-	if (do_bench == 2)
-		bench.silent = 1;
-	if (do_bench == 1)
+	if (do_bench)
 		disorder = ft_compute_disorder(a);
 	ft_sort(a, b, strategy, &bench);
-	if (do_bench == 1)
+	if (do_bench)
 		ft_print_bench(&bench, strategy, disorder);
-	else if (do_bench == 2)
-		ft_print_count(&bench);
 }
 
 int	main(int argc, char **argv)

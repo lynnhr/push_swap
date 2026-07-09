@@ -38,7 +38,6 @@ typedef struct s_bench
 	int	rrb;
 	int	rrr;
 	int	total;
-	int	silent;
 }	t_bench;
 
 void		ft_rotate(t_stack *stack);
@@ -98,7 +97,6 @@ double		ft_compute_disorder(t_stack *a);
 void		ft_putdouble(double n, int decimals, int fd);
 void		ft_adaptive_sort(t_stack *a, t_stack *b, t_bench *bench);
 
-void		ft_print_count(t_bench *b);
 void		ft_print_bench(t_bench *b, t_strategy s, double disorder);
 
 #endif

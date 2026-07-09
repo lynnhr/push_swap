@@ -32,8 +32,7 @@ void	ft_pa(t_stack *a, t_stack *b, t_bench *bench)
 		bench->pa++;
 		bench->total++;
 	}
-	if (!bench || !bench->silent)
-		ft_printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void	ft_pb(t_stack *a, t_stack *b, t_bench *bench)
@@ -44,6 +43,5 @@ void	ft_pb(t_stack *a, t_stack *b, t_bench *bench)
 		bench->pb++;
 		bench->total++;
 	}
-	if (!bench || !bench->silent)
-		ft_printf("pb\n");
+	ft_printf("pb\n");
 }
