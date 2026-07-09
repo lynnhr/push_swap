@@ -30,6 +30,7 @@ SRC		= source/main.c \
 		  source/parsing/ft_populate_stack.c \
 		  source/sorting/ft_radix_sort.c \
 		  source/sorting/ft_selection_sort.c \
+		  source/sorting/ft_small_sort.c \
 		  source/sorting/ft_chunk_sort.c \
 		  source/sorting/ft_chunk_sort_helper.c \
 		  source/sorting/ft_adaptive_sort.c \

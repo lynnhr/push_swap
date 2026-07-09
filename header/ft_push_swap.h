@@ -38,6 +38,7 @@ typedef struct s_bench
 	int	rrb;
 	int	rrr;
 	int	total;
+	int	silent;
 }	t_bench;
 
 void		ft_rotate(t_stack *stack);
@@ -64,6 +65,7 @@ long		ft_atol(char *str);
 void		ft_free_split(char **split);
 
 char		**ft_get_args(int argc, char **argv);
+int			ft_args_are_split(int argc, char **argv);
 int			ft_valid_int(char *str);
 int			ft_valid_input(char **arr);
 
@@ -83,6 +85,7 @@ int			ft_is_sorted(t_stack *a);
 int			ft_find_min_pos(t_stack *a);
 void		ft_bring_to_top(t_stack *a, int pos, t_bench *bench);
 void		ft_selection_sort(t_stack *a, t_stack *b, t_bench *bench);
+void		ft_small_sort(t_stack *a, t_stack *b, t_bench *bench);
 
 int			ft_squareroot(int n);
 int			ft_find_max_index(t_stack *b);
@@ -95,6 +98,7 @@ double		ft_compute_disorder(t_stack *a);
 void		ft_putdouble(double n, int decimals, int fd);
 void		ft_adaptive_sort(t_stack *a, t_stack *b, t_bench *bench);
 
+void		ft_print_count(t_bench *b);
 void		ft_print_bench(t_bench *b, t_strategy s, double disorder);
 
 #endif

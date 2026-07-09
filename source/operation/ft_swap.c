@@ -14,17 +14,16 @@
 
 void	ft_swap(t_stack *stack)
 {
-	t_node	*tmp1;
-	t_node	*tmp2;
+	t_node	*first;
+	t_node	*second;
 
 	if (!stack || ft_stack_size(stack) <= 1)
 		return ;
-	tmp1 = ft_stack_pop(stack);
-	tmp2 = ft_stack_pop(stack);
-	ft_stack_push(stack, tmp1->value);
-	ft_stack_push(stack, tmp2->value);
-	free(tmp1);
-	free(tmp2);
+	first = stack->head;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	stack->head = second;
 }
 
 void	ft_sa(t_stack *a, t_bench *bench)
@@ -35,7 +34,8 @@ void	ft_sa(t_stack *a, t_bench *bench)
 		bench->sa++;
 		bench->total++;
 	}
-	ft_printf("sa\n");
+	if (!bench || !bench->silent)
+		ft_printf("sa\n");
 }
 
 void	ft_sb(t_stack *b, t_bench *bench)
@@ -46,7 +46,8 @@ void	ft_sb(t_stack *b, t_bench *bench)
 		bench->sb++;
 		bench->total++;
 	}
-	ft_printf("sb\n");
+	if (!bench || !bench->silent)
+		ft_printf("sb\n");
 }
 
 void	ft_ss(t_stack *a, t_stack *b, t_bench *bench)
@@ -58,5 +59,6 @@ void	ft_ss(t_stack *a, t_stack *b, t_bench *bench)
 		bench->ss++;
 		bench->total++;
 	}
-	ft_printf("ss\n");
+	if (!bench || !bench->silent)
+		ft_printf("ss\n");
 }

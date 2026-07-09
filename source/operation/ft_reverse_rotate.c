@@ -36,7 +36,8 @@ void	ft_rra(t_stack *a, t_bench *bench)
 		bench->rra++;
 		bench->total++;
 	}
-	ft_printf("rra\n");
+	if (!bench || !bench->silent)
+		ft_printf("rra\n");
 }
 
 void	ft_rrb(t_stack *b, t_bench *bench)
@@ -47,7 +48,8 @@ void	ft_rrb(t_stack *b, t_bench *bench)
 		bench->rrb++;
 		bench->total++;
 	}
-	ft_printf("rrb\n");
+	if (!bench || !bench->silent)
+		ft_printf("rrb\n");
 }
 
 void	ft_rrr(t_stack *a, t_stack *b, t_bench *bench)
@@ -59,5 +61,6 @@ void	ft_rrr(t_stack *a, t_stack *b, t_bench *bench)
 		bench->rrr++;
 		bench->total++;
 	}
-	ft_printf("rrr\n");
+	if (!bench || !bench->silent)
+		ft_printf("rrr\n");
 }

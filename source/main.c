@@ -22,6 +22,8 @@ void	ft_parse_flags(int argc, char **argv,
 	{
 		if (ft_strncmp(argv[i], "--bench", 8) == 0)
 			*bench = 1;
+		else if (ft_strncmp(argv[i], "--count", 8) == 0)
+			*bench = 2;
 		else
 			*strategy = ft_get_strategy(argv[i]);
 		i++;
@@ -31,7 +33,7 @@ void	ft_parse_flags(int argc, char **argv,
 int	ft_handle_error(char **args, int is_split)
 {
 	ft_putstr_fd("Error\n", 2);
-	if (is_split)
+	if (is_split && args)
 		ft_free_split(args);
 	return (1);
 }
@@ -40,7 +42,9 @@ void	ft_sort(t_stack *a, t_stack *b, t_strategy strategy, t_bench *bench)
 {
 	if (ft_is_sorted(a))
 		return ;
-	if (strategy == COMPLEX)
+	if (ft_stack_size(a) <= 5)
+		ft_small_sort(a, b, bench);
+	else if (strategy == COMPLEX)
 		ft_radix_sort(a, b, bench);
 	else if (strategy == SIMPLE)
 		ft_selection_sort(a, b, bench);
@@ -57,11 +61,15 @@ void	ft_run(t_stack *a, t_stack *b, t_strategy strategy, int do_bench)
 
 	ft_bzero(&bench, sizeof(t_bench));
 	disorder = 0.0;
-	if (do_bench)
+	if (do_bench == 2)
+		bench.silent = 1;
+	if (do_bench == 1)
 		disorder = ft_compute_disorder(a);
 	ft_sort(a, b, strategy, &bench);
-	if (do_bench)
+	if (do_bench == 1)
 		ft_print_bench(&bench, strategy, disorder);
+	else if (do_bench == 2)
+		ft_print_count(&bench);
 }
 
 int	main(int argc, char **argv)
@@ -81,9 +89,9 @@ int	main(int argc, char **argv)
 	ft_parse_flags(argc, argv, &strategy, &bench);
 	args = ft_get_args(argc, argv);
 	if (!args || !ft_valid_input(args))
-		return (ft_handle_error(args, argc == 2));
+		return (ft_handle_error(args, ft_args_are_split(argc, argv)));
 	ft_init_stacks(&a, &b, args);
 	ft_run(&a, &b, strategy, bench);
-	ft_cleanup(&a, &b, args, argc == 2);
+	ft_cleanup(&a, &b, args, ft_args_are_split(argc, argv));
 	return (0);
 }

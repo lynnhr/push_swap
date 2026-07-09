@@ -14,9 +14,8 @@
 
 void	ft_putdouble(double n, int decimals, int fd)
 {
-	int		integer_part;
-	int		decimal_part;
-	double	multiplier;
+	long	scaled;
+	long	multiplier;
 	int		i;
 
 	if (n < 0)
@@ -24,18 +23,19 @@ void	ft_putdouble(double n, int decimals, int fd)
 		ft_putchar_fd('-', fd);
 		n = -n;
 	}
-	integer_part = (int)n;
-	ft_putnbr_fd(integer_part, fd);
-	ft_putchar_fd('.', fd);
 	multiplier = 1;
 	i = 0;
-	while (i < decimals)
-	{
+	while (i++ < decimals)
 		multiplier *= 10;
-		i++;
+	scaled = (long)(n * multiplier + 0.5);
+	ft_putnbr_fd(scaled / multiplier, fd);
+	ft_putchar_fd('.', fd);
+	i = 0;
+	while (i++ < decimals)
+	{
+		multiplier /= 10;
+		ft_putnbr_fd((scaled / multiplier) % 10, fd);
 	}
-	decimal_part = (int)((n - integer_part) * multiplier);
-	ft_putnbr_fd(decimal_part, fd);
 }
 
 double	ft_compute_disorder(t_stack *a)
@@ -60,6 +60,8 @@ double	ft_compute_disorder(t_stack *a)
 		}
 		current1 = current1->next;
 	}
+	if (total_pairs == 0)
+		return (0.0);
 	return (mistakes / total_pairs);
 }
 
@@ -72,7 +74,7 @@ void	ft_adaptive_sort(t_stack *a, t_stack *b, t_bench *bench)
 		return ;
 	else if (disorder < 0.2)
 		ft_selection_sort(a, b, bench);
-	else if (disorder < 0.5)
+	else if (disorder < 0.45)
 		ft_chunk_sort(a, b, bench);
 	else
 		ft_radix_sort(a, b, bench);

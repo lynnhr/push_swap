@@ -23,7 +23,7 @@ static void	ft_print_strategy(t_strategy s, double disorder)
 		ft_putstr_fd("Medium / O(n sqrt n)\n", 2);
 	else if (disorder < 0.2)
 		ft_putstr_fd("Adaptive / O(n)\n", 2);
-	else if (disorder < 0.5)
+	else if (disorder < 0.45)
 		ft_putstr_fd("Adaptive / O(n sqrt n)\n", 2);
 	else
 		ft_putstr_fd("Adaptive / O(n log n)\n", 2);
@@ -58,6 +58,12 @@ static void	ft_print_ops_rotate(t_bench *b)
 	ft_putnbr_fd(b->rrb, 2);
 	ft_putstr_fd(" rrr: ", 2);
 	ft_putnbr_fd(b->rrr, 2);
+	ft_putchar_fd('\n', 2);
+}
+
+void	ft_print_count(t_bench *b)
+{
+	ft_putnbr_fd(b->total, 2);
 	ft_putchar_fd('\n', 2);
 }
 

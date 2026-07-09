@@ -14,19 +14,56 @@
 
 char	**ft_get_args(int argc, char **argv)
 {
-	int	skip;
+	int		skip;
+	char	**args;
 
 	skip = 1;
 	while (skip < argc && ft_flag(argv[skip]))
 		skip++;
 	if (argc == skip + 1)
-		return (ft_split(argv[skip], ' '));
+	{
+		args = ft_split(argv[skip], ' ');
+		if (args && !args[0])
+		{
+			ft_free_split(args);
+			return (NULL);
+		}
+		return (args);
+	}
 	return (argv + skip);
+}
+
+int	ft_args_are_split(int argc, char **argv)
+{
+	int	skip;
+
+	skip = 1;
+	while (skip < argc && ft_flag(argv[skip]))
+		skip++;
+	return (argc == skip + 1);
+}
+
+static int	ft_count_digits(char *str, int i)
+{
+	int	digits;
+
+	while (str[i] == '0')
+		i++;
+	digits = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (-1);
+		digits++;
+		i++;
+	}
+	return (digits);
 }
 
 int	ft_valid_int(char *str)
 {
 	int		i;
+	int		digits;
 	long	n;
 
 	i = 0;
@@ -36,12 +73,9 @@ int	ft_valid_int(char *str)
 		i++;
 	if (str[i] == '\0')
 		return (0);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
+	digits = ft_count_digits(str, i);
+	if (digits < 0 || digits > 10)
+		return (0);
 	n = ft_atol(str);
 	if (n > 2147483647 || n < -2147483648)
 		return (0);
