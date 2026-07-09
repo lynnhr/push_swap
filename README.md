@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by atchelde & lhaydar*
+*This project has been created as part of the 42 curriculum by atchelde, lhaydar*
 
 ## Description
 
@@ -70,15 +70,39 @@ Sorts by binary index, bit by bit. For each bit position, elements with bit = 0 
 
 Runs in O(n log n) regardless of input order. Best for large inputs (200–500+ elements).
 
+### Small inputs (all strategies)
+
+For n ≤ 5, every strategy delegates to a dedicated small sort: the minimums are
+pushed to B, the remaining 3 elements are sorted in at most 2 operations, and B
+is pushed back. Cost: ≤ 2 ops for 3 numbers, ≤ 10 ops for 5 numbers.
+
 ### Adaptive Sort (`--adaptive`, default)
 
-Measures the disorder of the input (fraction of inversions) and selects the cheapest algorithm:
+Measures the disorder of the input (fraction of inverted pairs, computed before
+any moves) and selects the cheapest algorithm:
 
 ```
-disorder < 0.2   →  selection sort   (nearly sorted)
-disorder < 0.5   →  chunk sort
-disorder >= 0.5  →  radix sort
+disorder < 0.2    →  selection sort   (nearly sorted — behaves as O(n), see below)
+disorder < 0.45   →  chunk sort       (O(n√n))
+disorder >= 0.45  →  radix sort       (O(n log n))
 ```
+
+**Threshold rationale:**
+
+- **0.2 (low disorder):** on nearly-sorted input the current minimum is almost
+  always already at (or next to) the top of A, so selection sort degenerates to
+  the 2n push operations with almost no rotations. Its cost is O(n + k·n) where
+  k is the number of displaced elements; for disorder < 0.2 this behaves
+  linearly in the push_swap operation model (measured: 1028 ops ≈ 2n for 500
+  nearly-sorted numbers).
+- **0.45 (high disorder):** a uniformly random permutation has an expected
+  disorder of exactly 0.5, with a spread of only ~0.5% at n = 500. A boundary
+  placed exactly at 0.5 would make the chunk/radix choice a coin flip on random
+  data, and the chunk path (~13000 ops at n = 500) risks exceeding the 12000-op
+  limit. Moving the boundary to 0.45 means random inputs deterministically use
+  radix sort, while chunk sort still handles genuinely partially-sorted inputs.
+  The medium regime's complexity target still holds, since O(n log n) is within
+  the O(n√n) bound.
 
 ---
 
@@ -105,17 +129,20 @@ disorder >= 0.5  →  radix sort
 Pass `--bench` to print profiling stats to stderr after sorting:
 
 ```bash
-./push_swap --bench --complex 5 3 1 4 2
+./push_swap --bench --simple 5 4 3 2 1
 ```
 
 Output (stderr):
 ```
-disorder: 0.70
-strategy: COMPLEX (O(n log n))
-total: 25
-sa: 0  sb: 0  ss: 0  pa: 10  pb: 10
-ra: 5  rb: 0  rr: 0  rra: 0  rrb: 0  rrr: 0
+[bench] disorder: 100.00%
+[bench] strategy: Simple / O(n^2)
+[bench] total_ops: 8
+[bench] sa: 1 sb: 0 ss: 0 pa: 2 pb: 2
+[bench] ra: 0 rb: 0 rr: 0 rra: 3 rrb: 0 rrr: 0
 ```
+
+The disorder is printed as a percentage with two decimals (`0.00%` for a sorted
+input, `100.00%` for a reverse-sorted one).
 
 `--bench` does not affect stdout, so it can be combined with the checker:
 
@@ -127,14 +154,18 @@ ra: 5  rb: 0  rr: 0  rra: 0  rrb: 0  rrr: 0
 
 ## Performance
 
-Tested against the 42 grading thresholds:
+Tested against the 42 grading thresholds (default/adaptive strategy):
 
 ```
---complex   100 numbers  →  ~1092 ops   (limit: 700 / 900 / 1100)
---complex   500 numbers  →  ~6784 ops   (limit: 5500 / 7000)
---adaptive  100 numbers  →  ~1150 ops
---adaptive  500 numbers  →  ~6784 ops
+3 numbers    →  1–2 ops     (sheet: 5 acceptable, 3 good)
+5 numbers    →  6–9 ops     (sheet: 15 acceptable, 12 good)
+100 numbers  →  1084 ops    (pass < 2000, good < 1500)
+500 numbers  →  6784 ops    (pass < 12000, good < 8000)
 ```
+
+The 100- and 500-number counts are deterministic on random input: disorder of a
+random permutation is ~0.5, above the 0.45 threshold, so adaptive always picks
+radix sort there.
 
 ---
 
